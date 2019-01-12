@@ -12,6 +12,7 @@ module Simpler
     end
 
     def make_response(action)
+      binding.pry
       @request.env['simpler.controller'] = self
       @request.env['simpler.action'] = action
 
@@ -20,6 +21,14 @@ module Simpler
       write_response
 
       @response.finish
+    end
+
+    def set_header(type, value)
+      @response[type] = value
+    end
+
+    def set_response_status(status)
+      @response.status = status
     end
 
     private

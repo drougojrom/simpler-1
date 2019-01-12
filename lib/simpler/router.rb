@@ -1,4 +1,5 @@
 require_relative 'router/route'
+require 'pry'
 
 module Simpler
   class Router
@@ -18,7 +19,7 @@ module Simpler
     def route_for(env)
       method = env['REQUEST_METHOD'].downcase.to_sym
       path = env['PATH_INFO']
-
+      
       @routes.find { |route| route.match?(method, path) }
     end
 
