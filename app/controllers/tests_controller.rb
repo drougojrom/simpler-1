@@ -5,6 +5,7 @@ class TestsController < Simpler::Controller
   end
 
   def create
+    render text: 'Create'
   end
 
   def show
