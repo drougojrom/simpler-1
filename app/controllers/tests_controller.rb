@@ -5,7 +5,12 @@ class TestsController < Simpler::Controller
   end
 
   def create
+    render text: 'Create'
+  end
 
+  def show
+    @test = Test.find(request_params[:id]).first
+    render 'show'
   end
 
 end
